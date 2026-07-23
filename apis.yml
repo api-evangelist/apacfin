@@ -1,21 +1,44 @@
 aid: apacfin
-name: Apacfin
-description: 'Apacfin is a company surfaced as a portfolio company of norwest-venture-partners and added
-  to the API Evangelist network as a stub for enrichment. Sector: unknown. This profile is a lead awaiting
-  the enrichment pipeline.'
+name: APAC Financial Services
+description: 'APAC Financial Services (Apacfin) is a Mumbai-based, Reserve Bank of India registered
+  Non-Banking Financial Company (NBFC) that provides customized MSME business loans to underbanked and
+  underserved micro, small, and medium enterprises across India. APAC offers tech-enabled, largely
+  paperless digital onboarding, quick disbursal with minimal documentation, and a mobile app (APACM) for
+  loan tracking, EMI payments, and service requests. The lender reports roughly Rs 2,479 Crore of assets
+  under management across 226 branches in six states, serving more than 52,000 customers, and carries an
+  ICRA A (Stable) credit rating. APAC is a portfolio company of Norwest Venture Partners. No public
+  developer API, OpenAPI specification, or developer portal is published; customer and partner interaction
+  is via the mobile app and hosted customer/complaint portals.'
 url: https://raw.githubusercontent.com/api-evangelist/apacfin/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - norwest-venture-partners
 x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier-reason: no-public-api
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://apacfin.com/media/logos/logo-1.jpg
 specificationVersion: '0.20'
 created: '2026-07-17'
 modified: '2026-07-17'
 tags:
 - Company
-- Unknown
+- Financial Services
+- Fintech
+- Lending
+- NBFC
+- MSME
+- India
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -23,5 +46,20 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/apacfin-domain-security.yml
 - type: Website
   url: https://apacfin.com
+- type: TermsOfService
+  url: https://apacfin.com/terms-and-condition
+- type: PrivacyPolicy
+  url: https://apacfin.com/privacy-policy
+- type: Support
+  url: https://apacfin.com/contact_us
+- type: Blog
+  url: https://apacfin.com/newsroom
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
