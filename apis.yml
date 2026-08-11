@@ -30,7 +30,7 @@ accessModel:
 image: https://apacfin.com/media/logos/logo-1.jpg
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-08-10'
 tags:
 - Company
 - Financial Services
@@ -58,8 +58,41 @@ common:
   url: https://apacfin.com/contact_us
 - type: Blog
   url: https://apacfin.com/newsroom
+- type: Pricing
+  url: https://apacfin.com/scheduleofcharge
+- type: LLMsTxt
+  url: llms/apacfin-llms.txt
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-10'
+  status: minimal
+  artifacts_added: 2
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+  note: >-
+    Full contract-discovery pass completed. No API surface found on any host: every
+    spec, docs and .well-known path 404s on the open public site, no packages exist in
+    any registry, and the two name-matching GitHub accounts hold zero public repos.
+    well-known/ records the absence and deliberately emits no WellKnown pointer.
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    APAC is an RBI-registered NBFC whose only software products are the APACM borrower
+    app and an APAC Partner app; its website is fully open to crawlers (robots.txt
+    allows everything) yet serves 404 at every developer, spec and .well-known path,
+    and its five apacfin.in business systems (customerportal, partner, lms, crm, apps)
+    are unmarketed internal applications that return a uniform AWS ALB 403 rather than
+    any published contract.
+  evidence:
+  - url: https://apacfin.com/robots.txt
+    status: 200
+  - url: https://apacfin.com/developers
+    status: 404
+  - url: https://apacfin.com/openapi.json
+    status: 404
+  - url: https://apacfin.com/.well-known/security.txt
+    status: 404
+  - url: https://apacfin.com/.well-known/agent-card.json
+    status: 404
+  - url: https://customerportal.apacfin.in/
+    status: 403
+  checked: '2026-08-10'

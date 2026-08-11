@@ -1,0 +1,94 @@
+# APAC Financial Services
+
+> APAC Financial Services Private Limited (Apacfin) is a Mumbai-based, Reserve Bank of India
+> registered Non-Banking Financial Company (NBFC) lending to micro, small and medium
+> enterprises across India. It is a portfolio company of Norwest Venture Partners.
+>
+> **APAC publishes no public API.** There is no developer portal, no API reference, no
+> OpenAPI/AsyncAPI/GraphQL specification, no SDK in any package registry, and no webhook
+> documentation. Customer and partner interaction happens through mobile apps and hosted
+> web portals, not through a documented programmatic interface. An agent should not expect
+> a callable APAC endpoint to exist.
+
+generated: 2026-08-10
+method: generated
+source: apis.yml + live probes of apacfin.com, apacfin.in and five apacfin.in application hosts
+
+## What this profile is
+
+This is a third-party API Evangelist profile of a company's *public* surface. It is not
+operated by or affiliated with APAC Financial Services. It exists to record, with evidence,
+what the company does and does not publish for developers and agents.
+
+## Developer surface: none found
+
+Probed on 2026-08-10 and all returned 404 on the public host `apacfin.com`:
+
+- /api, /developer, /developers, /docs, /status
+- /openapi.json, /swagger.json, /api-docs
+- /llms.txt
+- /.well-known/security.txt, /.well-known/openid-configuration,
+  /.well-known/oauth-authorization-server, /.well-known/api-catalog,
+  /.well-known/ai-plugin.json, /.well-known/agent-card.json, /.well-known/agent.json
+
+The website's robots.txt returns 200 and disallows nothing, so this is a genuine absence
+rather than a crawler restriction. No package named for APAC exists on npm, PyPI or
+RubyGems. Two GitHub accounts matching the name exist (`apacfin`, `apacfinancilas`) but
+both hold zero public repositories and neither is verifiably first-party.
+
+## Internal application estate (not public, not an API)
+
+Certificate-transparency and DNS enumeration found five distinct hosts under `apacfin.in`,
+all fronted by one AWS Application Load Balancer in `ap-south-1`, all answering 403
+Forbidden to anonymous requests on every path including `/robots.txt`:
+
+- customerportal.apacfin.in — customer complaint portal, linked from the public footer
+- partner.apacfin.in
+- lms.apacfin.in
+- crm.apacfin.in
+- apps.apacfin.in
+
+These are the company's own internal/authenticated business systems. They are not a
+marketed API product and no contract for them is published anywhere.
+
+## Products
+
+- MSME business loans — secured and unsecured lending to underbanked micro, small and
+  medium enterprises: https://apacfin.com/products
+- Schedule of Charges (published fee and rate card): https://apacfin.com/scheduleofcharge
+
+## Applications
+
+- APACM Loan App (Android): https://play.google.com/store/apps/details?id=com.apacfin.apacm
+- APACM Loan App (iOS): https://apps.apple.com/in/app/apacm-loan-app/id6503333314
+- APAC Partner App (Android): https://play.google.com/store/apps/details?id=com.apac.partener
+
+## Company
+
+- Website: https://apacfin.com
+- Overview: https://apacfin.com/overview
+- Newsroom: https://apacfin.com/newsroom
+- Investor Corner: https://apacfin.com/Investor-corner
+- Become an APAC Partner: https://apacfin.com/apac_partner.html
+- Contact: https://apacfin.com/contact_us
+
+## Regulatory and policy
+
+APAC publishes corporate and regulatory disclosure material — NBFC filings, NCLT
+amalgamation orders, annual returns, quarterly liquidity risk disclosures and AGM
+notices — under the Companies Act and RBI direction. It publishes no technical security
+certification (no SOC 2, ISO 27001, PCI DSS), no vulnerability disclosure policy and no
+trust center.
+
+- Compliance filings: https://apacfin.com/compliance2
+- Company policies and code: https://apacfin.com/companypoliciesandcode
+- Customer education: https://apacfin.com/customereducation
+- Grievance escalation matrix: https://apacfin.com/customercomplaintsescalationmatrix
+- Terms and conditions: https://apacfin.com/terms-and-condition
+- Privacy policy: https://apacfin.com/privacy-policy
+
+## Corrections
+
+This profile is maintained by API Evangelist. Corrections, re-scores and removal are free
+and require no relationship: open an issue on the profile repository or email
+info@apievangelist.com. If APAC publishes an API, tell us and we will profile it.

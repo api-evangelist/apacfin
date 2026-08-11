@@ -1,0 +1,121 @@
+generated: '2026-08-10'
+method: probed
+source: live HTTP probes of every APAC Financial Services host discovered via apis.yml,
+  certificate transparency (CertSpotter) and DNS enumeration
+note: >-
+  RECORDED ABSENCE, NOT A PRESENCE. Every /.well-known/ path probed on every reachable
+  APAC host returned 404 (marketing host) or 403 (internal application hosts). No
+  WellKnown or SecurityTxt pointer is wired into apis.yml, because APAC serves no
+  document at any of these locations. This file exists to record that the probe ran
+  and what it found — it must never be read as evidence that the provider publishes a
+  .well-known surface.
+hosts:
+- host: apacfin.com
+  role: public marketing website
+  reachable: true
+  server_note: fully open to anonymous probes; robots.txt allows all user-agents
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html; charset=utf-8
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html; charset=utf-8
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html; charset=utf-8
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html; charset=utf-8
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html; charset=utf-8
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html; charset=utf-8
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html; charset=utf-8
+    file: null
+- host: customerportal.apacfin.in
+  role: hosted customer complaint portal (linked from apacfin.com footer)
+  reachable: false
+  server_note: >-
+    AWS Application Load Balancer (server: awselb/2.0) returns a uniform 403 Forbidden
+    of 118-520 bytes to every path, including / and /robots.txt, for both a default and
+    a browser User-Agent. This is an edge access control, not a login redirect — no
+    document, challenge page or auth flow is served.
+  paths:
+  - path: /.well-known/security.txt
+    status: 403
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 403
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    file: null
+  - path: /.well-known/api-catalog
+    status: 403
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 403
+    file: null
+  - path: /.well-known/agent.json
+    status: 403
+    file: null
+- host: partner.apacfin.in
+  role: internal partner/DSA application (inferred from hostname; never served to us)
+  reachable: false
+  server_note: same AWS ALB, 403 on /
+  paths:
+  - path: /
+    status: 403
+    file: null
+- host: lms.apacfin.in
+  role: internal loan management system (inferred from hostname; never served to us)
+  reachable: false
+  server_note: same AWS ALB, 403 on /
+  paths:
+  - path: /
+    status: 403
+    file: null
+- host: crm.apacfin.in
+  role: internal CRM (inferred from hostname; never served to us)
+  reachable: false
+  server_note: same AWS ALB, 403 on /
+  paths:
+  - path: /
+    status: 403
+    file: null
+- host: apps.apacfin.in
+  role: internal application host (inferred from hostname; never served to us)
+  reachable: false
+  server_note: same AWS ALB, 403 on /
+  paths:
+  - path: /
+    status: 403
+    file: null
+- host: apacfin.in
+  role: apex of the internal application domain
+  reachable: false
+  server_note: TCP connection times out from the probe location; no HTTP response
+  paths:
+  - path: /
+    status: 0
+    file: null
+summary:
+  hosts_probed: 7
+  paths_probed: 20
+  documents_found: 0
+  well_known_pointer_emitted: false
+  security_txt_pointer_emitted: false
